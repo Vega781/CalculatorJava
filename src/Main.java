@@ -50,10 +50,6 @@ public class Main
         else
         {
             result = calculated(toConvertNumber1, toConvertNumber2, operation);
-            if(toConvertNumber1 < toConvertNumber2)
-            {
-                throw new IOException("В римской системе исчисления нет отрицательных чисел.");
-            }
             String resultOut = convertNumToRoman(result);
             return resultOut;
         }
@@ -118,6 +114,10 @@ public class Main
                 result = num1 + num2;
                 break;
             case '-':
+                if(num1 < num2)
+                {
+                    throw new IOException("В римской системе исчисления нет отрицательных чисел.");
+                }
                 result = num1 - num2;
                 break;
             case '*':
